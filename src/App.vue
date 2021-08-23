@@ -5,9 +5,9 @@
     </head>
     <div id="app" >
       <div id="nav">
-        <router-link to="/">Capture</router-link> |
-        <router-link to="/process">Process</router-link> | 
-        <router-link to="/settings">Settings</router-link>
+        <router-link to="/">Lists</router-link> |
+        <router-link to="/settings">Settings</router-link> 
+       
       </div>
       <router-view @authenticated="setAuthenticated" />
     </div>
