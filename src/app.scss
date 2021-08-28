@@ -1,6 +1,6 @@
 // Define variable defaults
 $body-bg: #121212;
-$body-color: #00008b;
+$body-color: #2727b4;
 $success: #00008b;
 $primary: #6bd0ff;
 $secondary: #00008b;
@@ -9,7 +9,12 @@ $info: #00008b;
 $warning: #00008b;
 $danger: #8b0000;
 $light: #f8f8ff;
-$dark: #708090;
+$light1: #f8f8ffda;
+$light2: #f8f8ff98;
+$light3: #f8f8ff54;
+$dark1: #708090;
+$dark2: #444444;
+$dark3: #242424;
 
 // Then import Bootstrap an BootstrapVue SCSS files (order is important)
 @import "vue-swipe-actions/dist/vue-swipe-actions";
