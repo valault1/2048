@@ -1,11 +1,14 @@
-import settings from '@/localSettings.json';
 import InboxEntry from '@/models/InboxEntry';
 import axios, { AxiosResponse } from 'axios';
 
 
-export default class EntryService {
+export default class UserService {
 
-  apiUrl = settings.apiUrl; 
+  apiUrl: string;
+  constructor() {
+    this.apiUrl = process.env.VUE_APP_API_URL; 
+    console.log("using api url " + this.apiUrl);
+  }
 
   // Tells whether the username and password are valid
   async authenticateUser(username: string, password: string): Promise<boolean> {

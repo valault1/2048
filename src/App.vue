@@ -16,11 +16,9 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import CaptureComponent from '@/components/CaptureComponent.vue'; // @ is an alias to /src
 
 @Component({
   components: {
-    CaptureComponent,
   },
 })
 export default class App extends Vue {
@@ -28,13 +26,13 @@ export default class App extends Vue {
   authenticated = false;
   mounted() : void{
     console.log("mounted!");
+    // @ts-ignore
     if (!this.$session.exists()) {
       console.log("SESSION DOES NOT EXISTS");
       this.$router.replace({ name: "login" })
     }
     else {
       console.log("Session exists!");
-      console.log(this.$session.getAll());
     }
   }
 

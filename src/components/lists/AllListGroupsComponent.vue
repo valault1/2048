@@ -1,7 +1,7 @@
 <template>
   <div class="lists">
     <div>
-      <list-group-component v-for="listGroup in populatedListGroups" :key="listGroup.id" :populatedListGroup="listGroup" />
+      <list-group-component v-for="(listGroup, index) in populatedListGroups" :key="listGroup.id" :populatedListGroup.sync="populatedListGroups[index]" />
     </div>
   </div>
 </template>
@@ -19,7 +19,7 @@ import ListService from '@/services/ListService';
     ListGroupComponent,
   },
 })
-export default class CaptureComponent extends Vue {
+export default class AllListGroupsComponent extends Vue {
   populatedListGroups: PopulatedListGroup[] = [
     {name: "List Group 1", userId:"Val", id:"1", lists: []},
     {name: "List Group 2", userId:"Val", id:"2", lists: []},
@@ -27,7 +27,10 @@ export default class CaptureComponent extends Vue {
   ]
 
   mounted() {
-    new ListGroupService().getPopulatedListGroupsByUser("val").then((result) => {
+    // @ts-ignore
+    let userId = this.$session.get("userId");
+    console.log("getting groups for user " + userId)
+    new ListGroupService().getPopulatedListGroupsByUser(userId).then((result) => {
       this.populatedListGroups = result.data;
       console.log("listGroups:");
       console.log(this.populatedListGroups)

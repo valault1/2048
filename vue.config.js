@@ -11,4 +11,7 @@ module.exports = {
     themeColor: '#00008b',
     serviceWorker: true
   },
+  publicPath: process.env.NODE_ENV === 'prod'
+    ? '/dist/'
+    : '/'
 };

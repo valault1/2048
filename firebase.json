@@ -6,6 +6,12 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "site": "lists-37e19"
+    "site": "lists-37e19",
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
   }
 }

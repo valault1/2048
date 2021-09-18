@@ -27,7 +27,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import EntryService from '@/services/EntryService';
 import InboxEntry from '@/models/InboxEntry';
 import router from '@/router/index';
 

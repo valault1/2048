@@ -11,13 +11,11 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import CaptureComponent from '@/components/CaptureComponent.vue'; // @ is an alias to /src
 import UserService from '@/services/UserService';
 
 
 @Component({
   components: {
-    CaptureComponent
   },
 })
 export default class LoginView extends Vue {
@@ -35,8 +33,14 @@ export default class LoginView extends Vue {
       console.log(auth);
       if (auth) {
         this.$emit("authenticated", true);
+        // @ts-ignore
         this.$session.start();
-        this.$session.set('userId', user._id)
+        // @ts-ignore
+        this.$session.set('userId', user.id)
+        console.log(user.id);
+        console.log("set session. new session:");
+        // @ts-ignore
+        console.log(this.$session.getAll());
         this.$router.replace({ name: "home" });
       } 
       else {
