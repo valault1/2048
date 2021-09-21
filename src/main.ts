@@ -29,5 +29,4 @@ Vue.use(VueSession, options)
 new Vue({
   router,
   render: h => h(App)
-  //render (h) { return h((this as any).ViewComponent) } // this should get rid of "propert session does not exist on type..."
 }).$mount('#app')
