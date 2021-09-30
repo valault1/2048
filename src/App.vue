@@ -5,11 +5,10 @@
     </head>
     <div id="app" >
       <div id="nav">
-        <router-link to="/">Lists</router-link> |
-        <router-link to="/settings">Settings</router-link> 
+        <!--<router-link to="/">Lists</router-link> -->
        
       </div>
-      <router-view @authenticated="setAuthenticated" />
+      <router-view />
     </div>
   </html>
 </template>
@@ -23,26 +22,7 @@ import { Component, Vue } from 'vue-property-decorator';
 })
 export default class App extends Vue {
 
-  authenticated = false;
-  mounted() : void{
-    console.log("mounted!");
-    // @ts-ignore
-    if (!this.$session.exists()) {
-      console.log("SESSION DOES NOT EXISTS");
-      this.$router.replace({ name: "login" })
-    }
-    else {
-      console.log("Session exists!");
-    }
-  }
-
-  setAuthenticated(status : boolean) : void {
-    this.authenticated = status;
-  }
-
-  logout() : void {
-    this.setAuthenticated(false);
-  }
+  
 }
 </script>
 
