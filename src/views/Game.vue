@@ -1,8 +1,8 @@
 <template>
   <div class="capture">
-    <container class="main">
+    <b-container class="main">
       <GameBoard/>
-    </container>
+    </b-container>
   </div>
 </template>
 
