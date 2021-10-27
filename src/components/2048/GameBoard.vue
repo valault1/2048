@@ -2,12 +2,16 @@
   <div class="settings">
     <b-container class="container">
       
-      <b-card class="gameBoard" v-on:keyup="keyHandler($event)">
+      <b-card class="game-board-container" v-on:keyup="keyHandler($event)">
 
         <a> Here's the board! </a>
-        <b-row v-for="(row, index) in board" :key="index"  >
-          <b-col v-for="(col, index2) in row" :key="index.toString() + index2.toString()"> {{col}}</b-col>
-        </b-row >
+        <transition-group name="game-board">
+          <b-row v-for="(row, index) in board" :key="index"  >
+            <b-col v-for="(col, index2) in row" :key="index.toString() + index2.toString()"> 
+              <b-card class="gameTile">{{col}}</b-card>
+            </b-col>
+          </b-row >
+        </transition-group>
       </b-card>
       
     </b-container>
@@ -158,8 +162,12 @@ export default class GameBoard extends Vue {
 </script>
 
 <style scoped lang="scss">
-.gameBoard {
-  width: 250px;
+.game-board {
+  width: 500px;
+}
+
+.game-tile {
+  transition: all 1s;
 }
 
 .container {
